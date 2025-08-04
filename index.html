@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>SHAIK MUKTHAR BASHA: Software Developer</title>
+    <link rel="stylesheet" href="style.css?v=20250804-contact-scroll">>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+    <!-- Left Side Navigation Button -->
+    <button class="nav-menu-toggle" id="navMenuToggle" aria-label="Quick Navigation Menu" title="Quick Navigation">
+        <div class="moon-icon"></div>
+        <div class="nav-tooltip">Quick Navigation</div>
+        <i class="fas fa-times close-icon"></i>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav class="side-nav" id="sideNav">
+        <div class="nav-content">
+            <h3>Quick Navigation</h3>
+            <ul class="nav-links">
+                <li><a href="#header" onclick="scrollToSection('header')"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#certifications" onclick="scrollToSection('certifications')"><i class="fas fa-certificate"></i> Certifications</a></li>
+                <li><a href="#skills" onclick="scrollToSection('skills')"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#projects" onclick="scrollToSection('projects')"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="#contact" onclick="scrollToSection('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="nav-footer">
+                <p>Mukthar Basha</p>
+                <p>Software Developer</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Star Field Animation -->
+    <div class="star-field">
+        <div class="stars stars-1"></div>
+        <div class="stars stars-2"></div>
+        <div class="stars stars-3"></div>
+        <div class="stars stars-4"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star" style="animation-delay: 3s; top: 40%;"></div>
+        <div class="shooting-star" style="animation-delay: 6s; top: 60%;"></div>
+        
+        <!-- Solar System -->
+        <div class="sun"></div>
+        <div class="orbital-system">
+            <div class="orbit orbit-1">
+                <div class="planet planet-1"></div>
+            </div>
+            <div class="orbit orbit-2">
+                <div class="planet planet-2"></div>
+            </div>
+            <div class="orbit orbit-3">
+                <div class="planet planet-3"></div>
+            </div>
+            <div class="orbit orbit-4">
+                <div class="planet planet-4"></div>
+            </div>
+            <div class="orbit orbit-5">
+                <div class="planet planet-5"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">SHAIK MUKTHAR BASHA: Software Developer</h1>
+                    <p class="hero-description">
+                        Dedicated Software Engineer with expertise in C, Java, and Python, building efficient, user-centered solutions.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-secondary" onclick="scrollToSection('contact')">
+                            <i class="fas fa-envelope"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-photo">
+                        <img src="images/passport image.png" alt="Shaik Mukthar Basha" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Summary Section -->
+    <section class="section summary-section">
+        <div class="container">
+            <h2 class="section-title">Summary of Expertise</h2>
+            <p class="section-description">
+                A dedicated Software Engineer proficient in C, Java, and Python, focused on building efficient, user-centered solutions. 
+                Experience includes competitive coding on HackerRank and CodeChef, honing problem-solving abilities. Passionate about 
+                learning, innovation, and collaboration, eager to deliver high-quality results in software development.
+            </p>
+        </div>
+    </section>
+
+    <!-- Technical Proficiency Section -->
+    <section class="section proficiency-section">
+        <div class="container">
+            <h2 class="section-title">Technical Proficiency</h2>
+            <div class="proficiency-grid">
+                <div class="proficiency-card">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="card-title">Programming Languages</h3>
+                    <p class="card-description">Strong skills in C, Java, and Python.</p>
+                </div>
+                <div class="proficiency-card">
+                    <div class="card-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="card-title">Full Stack Web Development</h3>
+                    <p class="card-description">Proficiency in React.js for robust web applications.</p>
+                </div>
+                <div class="proficiency-card">
+                    <div class="card-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="card-title">Front-End Development</h3>
+                    <p class="card-description">Competence in creating user-friendly interfaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section leadership-section">
+        <div class="container">
+            <h2 class="section-title">Leadership & Collaboration</h2>
+            <div class="leadership-grid">
+                <div class="leadership-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="card-title">Team Leadership</h3>
+                    <p class="card-description">Ability to delegate tasks, set goals, and monitor progress effectively.</p>
+                </div>
+                <div class="leadership-card">
+                    <div class="card-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="card-title">Communication Skills</h3>
+                    <p class="card-description">Strong communication to facilitate seamless collaboration among team members.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section certifications-section">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-grid">
+                <a href="https://www.credly.com/earner/earned/badge/5ae720c5-f2a6-41d5-a00f-83fe086fb16f" class="certification-badge" target="_blank">
+                    <div class="cert-logo">
+                        <img src="images/certifications/aviatrix-logo-png_seeklogo-456435.png" alt="Aviatrix Logo" class="cert-logo-img">
+                    </div>
+                    <div class="cert-content">
+                        <h4>Multicloud Network Associate</h4>
+                        <p>Aviatrix</p>
+                    </div>
+                </a>
+                <a href="https://www.credly.com/earner/earned/badge/19ca1f6c-c48b-44d3-b200-ca224d15a2f5" class="certification-badge" target="_blank">
+                    <div class="cert-logo">
+                        <img src="images/certifications/mongodb-logo-png_seeklogo-273731.png" alt="MongoDB Logo" class="cert-logo-img">
+                    </div>
+                    <div class="cert-content">
+                        <h4>MongoDB Associate Developer</h4>
+                        <p>MongoDB</p>
+                    </div>
+                </a>
+                <a href="https://www.credly.com/badges/4648cce2-e639-4d9f-9e78-8fbf1032db5c/public_url" class="certification-badge" target="_blank">
+                    <div class="cert-logo">
+                        <img src="images/certifications/download.jpeg" alt="Red Hat Logo" class="cert-logo-img">
+                    </div>
+                    <div class="cert-content">
+                        <h4>Red Hat Learner</h4>
+                        <p>Red Hat</p>
+                    </div>
+                </a>
+                <div class="certification-badge">
+                    <div class="cert-logo">
+                        <img src="images/certifications/download.png" alt="Salesforce Logo" class="cert-logo-img">
+                    </div>
+                    <div class="cert-content">
+                        <h4>Salesforce Certified AI Associate</h4>
+                        <p>Salesforce</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Journey Section -->
+    <section class="section academic-section">
+        <div class="container">
+            <h2 class="section-title">Academic Journey</h2>
+            <div class="academic-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Class X: Sri Chaitanya School</h3>
+                        <p class="timeline-description">
+                            Foundational education that laid the groundwork for academic excellence and future learning endeavors at this esteemed institution.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Class XII: Sri Chaitanya Junior College (2021-2023)</h3>
+                        <p class="timeline-description">
+                            Achieved 821 Marks in intermediate education, bridging high school to higher education.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">B.Tech CSE: KL University (2023-2027)</h3>
+                        <p class="timeline-description">
+                            Maintaining a stellar 8.89 CGPA in ongoing Computer Science & Engineering program, demonstrating consistent excellence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills-section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> C</li>
+                        <li><i class="fas fa-check"></i> Python</li>
+                        <li><i class="fas fa-check"></i> Java</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Web Development</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> React.js</li>
+                        <li><i class="fas fa-check"></i> Django</li>
+                        <li><i class="fas fa-check"></i> MERN Stack (MongoDB, Express.js, React.js, Node.js)</li>
+                        <li><i class="fas fa-check"></i> JSP, Hibernate</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Databases & Tools</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> MySql</li>
+                        <li><i class="fas fa-check"></i> MongoDB</li>
+                        <li><i class="fas fa-check"></i> Git, GitHub</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Problem Solving</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check"></i> Competitive coding (HackerRank, CodeChef)</li>
+                        <li><i class="fas fa-check"></i> Data Structures & Algorithms</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects-section">
+        <div class="container">
+            <h2 class="section-title">Key Projects</h2>
+            <p class="section-description">
+                As a passionate Full-Stack Developer, I excel in seamless integration and hands-on project work. My portfolio includes:
+            </p>
+            <div class="projects-list">
+                <div class="project-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Stock Exchange Management System (Django)</span>
+                </div>
+                <div class="project-item">
+                    <i class="fas fa-home"></i>
+                    <span>Real Estate Management System (MERN)</span>
+                </div>
+                <div class="project-item">
+                    <i class="fas fa-boxes"></i>
+                    <span>Material Management and Storage Accounting System (JSP)</span>
+                </div>
+                <div class="project-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Event Management System (JSP with Hibernate)</span>
+                </div>
+                <div class="project-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span>News Website, Library Management System, Weather App, Aniflow, Password Meter, ImgToText, IP Lookup, and Many More.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section class="section github-section">
+        <div class="container">
+            <h2 class="section-title">GitHub Profile</h2>
+            <p class="section-description">
+                Explore a diverse range of projects, contributions, and code samples on my GitHub profile. This showcases my coding 
+                proficiency, collaborative efforts, and project coordination skills.
+            </p>
+            <div class="github-link">
+                <a href="https://github.com/MuktharBashaShaik" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-github"></i> Visit GitHub Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LinkedIn Section -->
+    <section class="section linkedin-section">
+        <div class="container">
+            <h2 class="section-title">LinkedIn Presence</h2>
+            <p class="section-description">
+                My LinkedIn profile highlights work experience, skills, and endorsements. Connect with industry professionals, 
+                join relevant groups, and stay updated on industry trends.
+            </p>
+            <div class="linkedin-link">
+                <a href="https://www.linkedin.com/in/shaik-mukthar-basha-581847325/" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section class="section interests-section">
+        <div class="container">
+            <h2 class="section-title">Interests & Activities</h2>
+            <div class="interests-grid">
+                <div class="interest-category">
+                    <h3 class="interest-title">Hobbies</h3>
+                    <ul class="interest-list">
+                        <li><i class="fas fa-play"></i> Watching Anime</li>
+                        <li><i class="fas fa-gamepad"></i> Playing Online Games</li>
+                        <li><i class="fas fa-book"></i> Reading Anime Manga (since 2021)</li>
+                    </ul>
+                </div>
+                <div class="interest-category">
+                    <h3 class="interest-title">Activities</h3>
+                    <ul class="interest-list">
+                        <li><i class="fas fa-laptop-code"></i> Developing Full Stack Projects</li>
+                        <li><i class="fas fa-baseball-ball"></i> Playing Cricket (since 2016)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-description">
+                Ready to collaborate or have questions about my work? I'd love to hear from you. Feel free to reach out for opportunities, 
+                projects, or just to connect professionally.
+            </p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 class="contact-info-title">Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>2300032055@kluniversity.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>Available upon request</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Andhra Pradesh, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Response Time</h4>
+                            <p>Within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" action="mailto:2300032055@kluniversity.in" method="post" enctype="text/plain">
+                        <h3 class="contact-form-title">Send Message</h3>
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company" placeholder="Your company name">
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position/Role</label>
+                            <input type="text" id="position" name="position" placeholder="Your job title">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="Job Opportunity">Job Opportunity</option>
+                                <option value="Freelance Project">Freelance Project</option>
+                                <option value="Collaboration">Collaboration</option>
+                                <option value="Consultation">Consultation</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell me about your project, opportunity, or inquiry..." rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">Expected Timeline</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Select timeline</option>
+                                <option value="Immediate">Immediate (within 1 week)</option>
+                                <option value="Short-term">Short-term (1-4 weeks)</option>
+                                <option value="Medium-term">Medium-term (1-3 months)</option>
+                                <option value="Long-term">Long-term (3+ months)</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary contact-submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Shaik Mukthar Basha. All rights reserved.</p>
+            <p class="footer-note">Made with HTML & CSS</p>
+        </div>
+    </footer>
+
+    <!-- Navigation Menu Script -->
+    <script>
+        const navMenuToggle = document.getElementById('navMenuToggle');
+        const sideNav = document.getElementById('sideNav');
+        const navOverlay = document.getElementById('navOverlay');
+        const body = document.body;
+        
+        // Toggle navigation menu
+        navMenuToggle.addEventListener('click', () => {
+            navMenuToggle.classList.toggle('active');
+            sideNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+        });
+
+        // Close menu when overlay is clicked
+        navOverlay.addEventListener('click', () => {
+            navMenuToggle.classList.remove('active');
+            sideNav.classList.remove('active');
+            navOverlay.classList.remove('active');
+        });
+
+        // Smooth scroll to sections
+        function scrollToSection(sectionId) {
+            // Close the navigation menu
+            navMenuToggle.classList.remove('active');
+            sideNav.classList.remove('active');
+            navOverlay.classList.remove('active');
+            
+            // Find the section and scroll to it
+            if (sectionId === 'header') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const section = document.querySelector('.' + sectionId + '-section');
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+
+        // Close menu when escape key is pressed
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                navMenuToggle.classList.remove('active');
+                sideNav.classList.remove('active');
+                navOverlay.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
