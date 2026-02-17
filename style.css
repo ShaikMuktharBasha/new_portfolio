@@ -74,18 +74,18 @@ body {
     background: #0a0a0f;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    cursor: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="42" viewBox="0 0 36 42"><g transform="rotate(-15 18 21)"><path d="M18 3 C14 3 12 7 12 11 L12 24 C12 28 14 30 18 30 C22 30 24 28 24 24 L24 11 C24 7 22 3 18 3 Z" fill="white" stroke="black" stroke-width="1.5"/><path d="M18 3 C20 3 22 5 22 8 L22 19 C22 21 20 23 18 23 C16 23 14 21 14 19 L14 8 C14 5 16 3 18 3 Z" fill="%237c3aed" opacity="0.8"/><circle cx="18" cy="13" r="3.5" fill="%234f46e5" stroke="black" stroke-width="0.8"/><rect x="17" y="11" width="2" height="4" rx="1" fill="white" opacity="0.9"/><path d="M10 21 L13 27 L15 23 Z" fill="%237c3aed"/><path d="M26 21 L23 27 L21 23 Z" fill="%237c3aed"/><path d="M16 30 L18 38 L20 30 Z" fill="%2300d4ff"/><ellipse cx="17" cy="32" rx="1.2" ry="2" fill="%2300d4ff" opacity="0.9"/><ellipse cx="19" cy="34" rx="1" ry="1.8" fill="%234dabf7" opacity="0.8"/></g></svg>') 18 21, auto;
+    cursor: default;
 }
 
-/* Rocket cursor variations for interactive elements */
+/* Simplified cursor for interactive elements */
 a, button, .btn, .nav-links li, .planet, .moon-icon, 
 input, textarea, select, [role="button"], [tabindex]:not([tabindex="-1"]) {
-    cursor: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="42" viewBox="0 0 36 42"><g transform="rotate(-15 18 21)"><path d="M18 3 C14 3 12 7 12 11 L12 24 C12 28 14 30 18 30 C22 30 24 28 24 24 L24 11 C24 7 22 3 18 3 Z" fill="white" stroke="black" stroke-width="1.8"/><path d="M18 3 C20 3 22 5 22 8 L22 19 C22 21 20 23 18 23 C16 23 14 21 14 19 L14 8 C14 5 16 3 18 3 Z" fill="%236d28d9" opacity="0.9"/><circle cx="18" cy="13" r="3.5" fill="%233730a3" stroke="black" stroke-width="1"/><rect x="17" y="11" width="2" height="4" rx="1" fill="white" opacity="1"/><circle cx="16" cy="12" r="0.6" fill="%2300d4ff" opacity="0.9"/><circle cx="20" cy="14" r="0.4" fill="%2300b4d8" opacity="0.8"/><path d="M10 21 L13 27 L15 23 Z" fill="%236d28d9"/><path d="M26 21 L23 27 L21 23 Z" fill="%236d28d9"/><path d="M16 30 L18 40 L20 30 Z" fill="%2300b4d8"/><ellipse cx="17" cy="33" rx="1.4" ry="2.5" fill="%2300d4ff" opacity="1"/><ellipse cx="19" cy="36" rx="1.2" ry="2" fill="%234dabf7" opacity="0.9"/><ellipse cx="18" cy="38" rx="1" ry="1.5" fill="%237c3aed" opacity="0.8"/><circle cx="17.5" cy="34" r="0.4" fill="white" opacity="0.9"/></g></svg>') 18 21, pointer;
+    cursor: pointer;
 }
 
 /* Text selection cursor */
 p, h1, h2, h3, h4, h5, h6, span, div {
-    cursor: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="42" viewBox="0 0 36 42"><g transform="rotate(-15 18 21)"><path d="M18 3 C14 3 12 7 12 11 L12 24 C12 28 14 30 18 30 C22 30 24 28 24 24 L24 11 C24 7 22 3 18 3 Z" fill="white" stroke="%23555" stroke-width="1.2" opacity="0.8"/><path d="M18 3 C20 3 22 5 22 8 L22 19 C22 21 20 23 18 23 C16 23 14 21 14 19 L14 8 C14 5 16 3 18 3 Z" fill="%23a855f7" opacity="0.5"/><circle cx="18" cy="13" r="3.5" fill="%236366f1" stroke="%23555" stroke-width="0.5" opacity="0.7"/><rect x="17" y="11" width="2" height="4" rx="1" fill="white" opacity="0.6"/><path d="M10 21 L13 27 L15 23 Z" fill="%23a855f7" opacity="0.5"/><path d="M26 21 L23 27 L21 23 Z" fill="%23a855f7" opacity="0.5"/><path d="M16 30 L18 38 L20 30 Z" fill="%234dabf7" opacity="0.6"/><ellipse cx="17" cy="32" rx="1.2" ry="2" fill="%234dabf7" opacity="0.5"/><ellipse cx="19" cy="34" rx="1" ry="1.8" fill="%237c3aed" opacity="0.4"/></g></svg>') 18 21, text;
+    cursor: text;
 }
 
 /* Dark Mode Body Styles */
@@ -133,7 +133,7 @@ p, h1, h2, h3, h4, h5, h6, span, div {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-/* Background Pattern with Animated Star Particles */
+/* Optimized Background Pattern */
 body::before {
     content: '';
     position: fixed;
@@ -142,16 +142,14 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 50% 10%, rgba(129, 140, 248, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 10% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 40%);
+        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.06) 0%, transparent 50%);
     z-index: -1;
     pointer-events: none;
-    animation: float 8s ease-in-out infinite;
+    will-change: transform;
 }
 
-/* Animated star particles */
+/* Simplified star particles */
 body::after {
     content: '';
     position: fixed;
@@ -160,32 +158,22 @@ body::after {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle 2px at 20% 30%, #fff 1px, transparent 1px),
-        radial-gradient(circle 2px at 40% 70%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
-        radial-gradient(circle 1px at 90% 40%, #fff 1px, transparent 1px),
-        radial-gradient(circle 1px at 60% 90%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
-        radial-gradient(circle 2px at 10% 20%, #fff 1px, transparent 1px),
-        radial-gradient(circle 1px at 80% 10%, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
-    background-size: 200px 200px, 300px 300px, 250px 250px, 350px 350px, 400px 400px, 180px 180px;
-    animation: floatStars 25s linear infinite;
+        radial-gradient(circle 1px at 20% 30%, #fff 1px, transparent 1px),
+        radial-gradient(circle 1px at 40% 70%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+        radial-gradient(circle 1px at 90% 40%, #fff 1px, transparent 1px);
+    background-size: 300px 300px, 400px 400px, 250px 250px;
+    animation: floatStars 60s linear infinite;
     z-index: -1;
     pointer-events: none;
+    will-change: transform;
 }
 
 @keyframes floatStars {
     0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
+        transform: translateY(0);
     }
     100% {
-        transform: translateY(-100vh) translateX(-50px) rotate(360deg);
-        opacity: 0;
+        transform: translateY(-100vh);
     }
 }
 
@@ -1996,7 +1984,7 @@ html {
         radial-gradient(circle 1px at 25% 75%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
         radial-gradient(circle 2px at 55% 45%, rgba(255, 255, 255, 0.7) 1px, transparent 1px);
     background-size: 300px 300px, 400px 400px, 250px 250px, 350px 350px, 500px 500px, 200px 200px, 450px 450px, 320px 320px;
-    animation: floatStars 30s linear infinite, twinkleStars 3s ease-in-out infinite alternate;
+    animation: floatStars 30s linear infinite;
 }
 
 @keyframes twinkleStars {
@@ -2017,6 +2005,7 @@ html {
     height: 100%;
     z-index: -2;
     pointer-events: none;
+    will-change: transform;
 }
 
 .stars {
@@ -2026,76 +2015,40 @@ html {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    will-change: transform;
 }
 
 .stars-1 {
     background-image: 
-        radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
-        radial-gradient(2px 2px at 40px 70px, #ffffff, transparent),
-        radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
-        radial-gradient(1px 1px at 130px 80px, #ffffff, transparent),
-        radial-gradient(2px 2px at 160px 30px, #ffffff, transparent);
+        radial-gradient(1px 1px at 20px 30px, #ffffff, transparent),
+        radial-gradient(1px 1px at 40px 70px, #ffffff, transparent),
+        radial-gradient(1px 1px at 90px 40px, #ffffff, transparent);
     background-repeat: repeat;
     background-size: 200px 100px;
-    animation: move-stars 30s linear infinite;
-    opacity: 0.8;
+    animation: move-stars 40s linear infinite;
+    opacity: 0.6;
 }
 
 .stars-2 {
     background-image: 
         radial-gradient(1px 1px at 40px 60px, #ffffff, transparent),
-        radial-gradient(1px 1px at 120px 10px, #ffffff, transparent),
-        radial-gradient(1px 1px at 80px 80px, #ffffff, transparent);
+        radial-gradient(1px 1px at 120px 10px, #ffffff, transparent);
     background-repeat: repeat;
     background-size: 300px 150px;
-    animation: move-stars 60s linear infinite;
-    opacity: 0.6;
-}
-
-.stars-3 {
-    background-image: 
-        radial-gradient(1px 1px at 10px 10px, #ffffff, transparent),
-        radial-gradient(1px 1px at 150px 150px, #ffffff, transparent),
-        radial-gradient(1px 1px at 60px 50px, #ffffff, transparent);
-    background-repeat: repeat;
-    background-size: 250px 125px;
-    animation: move-stars 45s linear infinite;
-    opacity: 0.7;
-}
-
-.stars-4 {
-    background-image: 
-        radial-gradient(2px 2px at 30px 20px, #ffffff, transparent),
-        radial-gradient(1px 1px at 80px 60px, #ffffff, transparent),
-        radial-gradient(1px 1px at 140px 90px, #ffffff, transparent),
-        radial-gradient(2px 2px at 200px 40px, #ffffff, transparent);
-    background-repeat: repeat;
-    background-size: 350px 200px;
-    animation: move-stars 25s linear infinite, twinkleStars 3s ease-in-out infinite alternate;
-    opacity: 0.9;
+    animation: move-stars 80s linear infinite;
+    opacity: 0.4;
 }
 
 .shooting-star {
     position: absolute;
     top: 20%;
     left: -10px;
-    width: 3px;
+    width: 2px;
     height: 1px;
     background: linear-gradient(90deg, #ffffff, transparent);
-    animation: shooting 6s linear infinite;
+    animation: shooting 8s linear infinite;
     opacity: 0;
-    box-shadow: 0 0 6px #ffffff;
-}
-
-.shooting-star::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 1px;
-    background: linear-gradient(90deg, white, transparent);
-    transform: translateX(-50px) rotate(45deg);
+    will-change: transform;
 }
 
 @keyframes move-stars {
@@ -2109,17 +2062,17 @@ html {
 
 @keyframes shooting {
     0% {
-        transform: translateX(-100px) translateY(0);
+        transform: translateX(-100px);
         opacity: 0;
     }
-    10% {
+    20% {
         opacity: 1;
     }
-    90% {
+    80% {
         opacity: 1;
     }
     100% {
-        transform: translateX(100vw) translateY(300px);
+        transform: translateX(100vw);
         opacity: 0;
     }
 }
@@ -2206,151 +2159,31 @@ html {
     font-weight: 500;
 }
 
-/* Solar System Animation */
+/* Simplified Solar System Animation */
 .sun {
     position: fixed;
     top: 10%;
     left: 2%;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 8%),
-        radial-gradient(circle at 35% 15%, rgba(255, 255, 240, 0.9) 5%, transparent 20%),
-        radial-gradient(circle at 60% 40%, rgba(255, 220, 0, 0.8) 10%, transparent 35%),
-        radial-gradient(circle at 20% 70%, rgba(255, 180, 0, 0.7) 15%, transparent 40%),
-        radial-gradient(circle at 75% 65%, rgba(255, 140, 0, 0.6) 20%, transparent 45%),
-        radial-gradient(circle at 45% 80%, rgba(255, 100, 0, 0.5) 25%, transparent 50%),
-        radial-gradient(circle at 80% 30%, rgba(255, 69, 0, 0.4) 30%, transparent 55%),
-        linear-gradient(45deg, #fff700 0%, #ffed4e 15%, #ff8c00 35%, #ff6347 55%, #ff4500 75%, #dc143c 100%);
+    background: linear-gradient(45deg, #fff700 0%, #ff8c00 50%, #ff4500 100%);
     box-shadow: 
-        0 0 20px rgba(255, 255, 0, 1),
-        0 0 40px rgba(255, 200, 0, 0.8),
-        0 0 60px rgba(255, 150, 0, 0.6),
-        0 0 80px rgba(255, 100, 0, 0.4),
-        0 0 100px rgba(255, 69, 0, 0.3),
-        inset -15px -15px 30px rgba(255, 69, 0, 0.4),
-        inset 8px 8px 20px rgba(255, 255, 200, 0.3);
-    animation: sunPulse 3s ease-in-out infinite, sunRotate 20s linear infinite;
+        0 0 20px rgba(255, 255, 0, 0.6),
+        0 0 40px rgba(255, 200, 0, 0.4);
+    animation: sunPulse 4s ease-in-out infinite;
     z-index: 10;
-    position: relative;
-    overflow: visible;
-}
-
-/* Solar flares and corona */
-.sun::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border-radius: 50%;
-    background: 
-        radial-gradient(circle at 30% 20%, rgba(255, 140, 0, 0.4) 0%, transparent 60%),
-        radial-gradient(circle at 70% 80%, rgba(255, 69, 0, 0.3) 0%, transparent 70%),
-        radial-gradient(circle at 10% 60%, rgba(255, 99, 71, 0.3) 0%, transparent 65%),
-        radial-gradient(circle at 90% 40%, rgba(255, 165, 0, 0.2) 0%, transparent 80%);
-    animation: coronaFlicker 2s ease-in-out infinite alternate;
-    z-index: -1;
-}
-
-/* Solar prominences */
-.sun::after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    border-radius: 50%;
-    background: 
-        radial-gradient(ellipse 40px 15px at 20% 10%, rgba(255, 69, 0, 0.6) 0%, transparent 70%),
-        radial-gradient(ellipse 30px 12px at 80% 90%, rgba(255, 140, 0, 0.5) 0%, transparent 60%),
-        radial-gradient(ellipse 25px 10px at 90% 50%, rgba(255, 99, 71, 0.4) 0%, transparent 50%),
-        radial-gradient(ellipse 35px 8px at 10% 80%, rgba(255, 165, 0, 0.3) 0%, transparent 40%);
-    animation: solarFlares 4s ease-in-out infinite;
-    z-index: -2;
+    will-change: transform;
 }
 
 @keyframes sunPulse {
     0%, 100% {
         transform: scale(1);
-        box-shadow: 
-            0 0 20px rgba(255, 255, 0, 1),
-            0 0 40px rgba(255, 200, 0, 0.8),
-            0 0 60px rgba(255, 150, 0, 0.6),
-            0 0 80px rgba(255, 100, 0, 0.4),
-            0 0 100px rgba(255, 69, 0, 0.3),
-            inset -15px -15px 30px rgba(255, 69, 0, 0.4),
-            inset 8px 8px 20px rgba(255, 255, 200, 0.3);
+        opacity: 0.8;
     }
     50% {
-        transform: scale(1.03);
-        box-shadow: 
-            0 0 25px rgba(255, 255, 0, 1),
-            0 0 50px rgba(255, 200, 0, 1),
-            0 0 75px rgba(255, 150, 0, 0.8),
-            0 0 100px rgba(255, 100, 0, 0.6),
-            0 0 125px rgba(255, 69, 0, 0.4),
-            inset -15px -15px 30px rgba(255, 69, 0, 0.5),
-            inset 8px 8px 20px rgba(255, 255, 200, 0.4);
-    }
-}
-
-@keyframes sunRotate {
-    0% {
-        filter: hue-rotate(0deg) brightness(1);
-    }
-    25% {
-        filter: hue-rotate(5deg) brightness(1.05);
-    }
-    50% {
-        filter: hue-rotate(-3deg) brightness(1.1);
-    }
-    75% {
-        filter: hue-rotate(8deg) brightness(1.02);
-    }
-    100% {
-        filter: hue-rotate(0deg) brightness(1);
-    }
-}
-
-@keyframes coronaFlicker {
-    0% {
-        opacity: 0.6;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.9;
         transform: scale(1.05);
-    }
-    100% {
-        opacity: 0.7;
-        transform: scale(1.02);
-    }
-}
-
-@keyframes solarFlares {
-    0% {
-        opacity: 0.3;
-        transform: rotate(0deg) scale(1);
-    }
-    25% {
-        opacity: 0.6;
-        transform: rotate(90deg) scale(1.1);
-    }
-    50% {
-        opacity: 0.4;
-        transform: rotate(180deg) scale(0.9);
-    }
-    75% {
-        opacity: 0.7;
-        transform: rotate(270deg) scale(1.05);
-    }
-    100% {
-        opacity: 0.3;
-        transform: rotate(360deg) scale(1);
+        opacity: 1;
     }
 }
 
@@ -2360,45 +2193,29 @@ html {
     left: 2%;
     transform: translate(-50%, -50%);
     z-index: 5;
+    will-change: transform;
 }
 
 .orbit {
     position: absolute;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    will-change: transform;
 }
 
 .orbit-1 {
-    width: 300px;
-    height: 300px;
-    animation: orbit 20s linear infinite;
-}
-
-.orbit-2 {
-    width: 420px;
-    height: 420px;
+    width: 250px;
+    height: 250px;
     animation: orbit 30s linear infinite;
 }
 
-.orbit-3 {
-    width: 580px;
-    height: 580px;
-    animation: orbit 45s linear infinite;
-}
-
-.orbit-4 {
-    width: 720px;
-    height: 720px;
-    animation: orbit 60s linear infinite;
-}
-
-.orbit-5 {
-    width: 480px;
-    height: 480px;
-    animation: orbit 25s linear infinite;
+.orbit-2 {
+    width: 350px;
+    height: 350px;
+    animation: orbit 50s linear infinite;
 }
 
 @keyframes orbit {
@@ -2416,130 +2233,89 @@ html {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0.9;
+    opacity: 0.7;
     z-index: 1;
-    filter: drop-shadow(3px 6px 12px rgba(0, 0, 0, 0.4));
+    will-change: transform;
 }
 
-/* Mars - The Red Planet */
+/* Simplified Mars */
 .planet-1 {
-    width: 25px;
-    height: 25px;
-    background: 
-        radial-gradient(ellipse 8px 5px at 30% 25%, rgba(255, 180, 120, 0.8), transparent 60%),
-        radial-gradient(ellipse 5px 3px at 65% 60%, rgba(200, 100, 60, 0.7), transparent 50%),
-        radial-gradient(ellipse 4px 3px at 80% 30%, rgba(180, 80, 40, 0.6), transparent 40%),
-        linear-gradient(135deg, #cd5c5c 0%, #a0522d 30%, #8b4513 60%, #654321 100%);
-    box-shadow: 
-        inset -4px -4px 8px rgba(0, 0, 0, 0.7),
-        inset 2px 2px 4px rgba(205, 92, 92, 0.4),
-        0 0 12px rgba(205, 92, 92, 0.3);
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #cd5c5c 0%, #a0522d 100%);
+    box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Earth - The Blue Planet */
+/* Simplified Earth */
 .planet-2 {
-    width: 30px;
-    height: 30px;
-    background: 
-        radial-gradient(ellipse 8px 6px at 25% 30%, rgba(100, 200, 255, 0.9), transparent 65%),
-        radial-gradient(ellipse 6px 4px at 60% 20%, rgba(34, 139, 34, 0.8), transparent 55%),
-        radial-gradient(ellipse 5px 3px at 75% 65%, rgba(139, 69, 19, 0.7), transparent 50%),
-        linear-gradient(140deg, #4169e1 0%, #228b22 25%, #1e90ff 50%, #32cd32 75%, #0000cd 100%);
-    box-shadow: 
-        inset -5px -5px 10px rgba(0, 0, 0, 0.6),
-        inset 2px 2px 5px rgba(65, 105, 225, 0.5),
-        0 0 15px rgba(65, 105, 225, 0.4);
-}
-
-/* Jupiter - The Gas Giant */
-.planet-3 {
-    width: 55px;
-    height: 55px;
-    background: 
-        linear-gradient(0deg, transparent 0%, rgba(255, 140, 0, 0.3) 15%, transparent 25%),
-        linear-gradient(0deg, transparent 30%, rgba(210, 180, 140, 0.4) 35%, transparent 40%),
-        linear-gradient(0deg, transparent 45%, rgba(255, 165, 0, 0.5) 50%, transparent 55%),
-        radial-gradient(ellipse 15px 10px at 35% 40%, rgba(255, 99, 71, 0.8), transparent 70%),
-        linear-gradient(135deg, #daa520 0%, #ff8c00 25%, #d2691e 50%, #cd853f 75%, #a0522d 100%);
-    box-shadow: 
-        inset -8px -8px 15px rgba(0, 0, 0, 0.7),
-        inset 3px 3px 8px rgba(218, 165, 32, 0.5),
-        0 0 25px rgba(218, 165, 32, 0.4);
-}
-
-/* Saturn - The Ringed Planet */
-.planet-4 {
-    width: 45px;
-    height: 45px;
-    background: 
-        linear-gradient(0deg, transparent 0%, rgba(255, 228, 181, 0.3) 12%, transparent 20%),
-        linear-gradient(0deg, transparent 25%, rgba(240, 230, 140, 0.4) 30%, transparent 35%),
-        linear-gradient(135deg, #faf0e6 0%, #f5deb3 25%, #deb887 50%, #d2b48c 75%, #bc8f8f 100%);
-    box-shadow: 
-        inset -7px -7px 14px rgba(0, 0, 0, 0.6),
-        inset 3px 3px 7px rgba(250, 240, 230, 0.5),
-        0 0 20px rgba(250, 240, 230, 0.3);
-    position: relative;
-}
-
-/* Saturn's Rings */
-.planet-4::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 65px;
-    height: 65px;
-    transform: translate(-50%, -50%);
-    border: 1px solid rgba(255, 228, 181, 0.6);
-    border-radius: 50%;
-    box-shadow: 
-        inset 0 0 0 2px rgba(255, 228, 181, 0.4),
-        inset 0 0 0 4px transparent,
-        inset 0 0 0 5px rgba(255, 228, 181, 0.3);
-}
-
-.planet-4::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 75px;
-    height: 75px;
-    transform: translate(-50%, -50%);
-    border: 1px solid rgba(255, 228, 181, 0.4);
-    border-radius: 50%;
-}
-
-/* Venus - The Cloudy Planet */
-.planet-5 {
-    width: 28px;
-    height: 28px;
-    background: 
-        radial-gradient(ellipse 8px 6px at 30% 25%, rgba(255, 255, 224, 0.9), transparent 60%),
-        radial-gradient(ellipse 6px 4px at 65% 60%, rgba(255, 250, 205, 0.8), transparent 55%),
-        linear-gradient(130deg, #fff8dc 0%, #ffebcd 25%, #ffe4b5 50%, #ffd700 75%, #ffa500 100%);
-    box-shadow: 
-        inset -4px -4px 8px rgba(0, 0, 0, 0.5),
-        inset 2px 2px 4px rgba(255, 248, 220, 0.6),
-        0 0 14px rgba(255, 248, 220, 0.5);
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(140deg, #4169e1 0%, #228b22 50%, #1e90ff 100%);
+    box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Planet hover effects */
 .planet:hover {
     opacity: 1;
-    transform: translateX(-50%) scale(1.3);
-    transition: all 0.5s ease;
-    filter: drop-shadow(4px 8px 16px rgba(0, 0, 0, 0.5)) brightness(1.2) contrast(1.1);
+    transform: translateX(-50%) scale(1.2);
+    transition: all 0.3s ease;
 }
 
-/* Saturn ring animation on hover */
-.planet-4:hover::before,
-.planet-4:hover::after {
-    animation: ringRotate 2s linear infinite;
+/* =============================
+   PERFORMANCE OPTIMIZATIONS
+   ============================= */
+
+/* GPU Layer Promotion for animated elements */
+.star-field,
+.stars,
+.shooting-star,
+.sun,
+.orbital-system,
+.orbit,
+.planet {
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
 }
 
-@keyframes ringRotate {
-    0% { transform: translate(-50%, -50%) rotateZ(0deg); }
-    100% { transform: translate(-50%, -50%) rotateZ(360deg); }
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .star-field,
+    .stars,
+    .shooting-star,
+    .sun,
+    .orbit {
+        animation: none !important;
+    }
+}
+
+/* Optimize text rendering */
+body {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent layout shifts */
+img, video {
+    height: auto;
+    max-width: 100%;
+}
+
+/* Reduce redundant style calculations */
+.btn,
+.nav-links li,
+.certification-badge {
+    contain: layout style paint;
 }

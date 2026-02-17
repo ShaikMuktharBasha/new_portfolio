@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    
+    <!-- Performance Hints -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdn.credly.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
     <title>SHAIK MUKTHAR BASHA: Software Developer</title>
-    <link rel="stylesheet" href="style.css?v=20250804-contact-scroll">>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Optimized Resource Loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="style.css?v=optimized">
 </head>
 <body class="dark-mode">
     <!-- Left Side Navigation Button -->
@@ -40,17 +50,13 @@
     <!-- Overlay -->
     <div class="nav-overlay" id="navOverlay"></div>
 
-    <!-- Star Field Animation -->
+    <!-- Optimized Background Animation -->
     <div class="star-field">
         <div class="stars stars-1"></div>
         <div class="stars stars-2"></div>
-        <div class="stars stars-3"></div>
-        <div class="stars stars-4"></div>
         <div class="shooting-star"></div>
-        <div class="shooting-star" style="animation-delay: 3s; top: 40%;"></div>
-        <div class="shooting-star" style="animation-delay: 6s; top: 60%;"></div>
         
-        <!-- Solar System -->
+        <!-- Simplified Solar System -->
         <div class="sun"></div>
         <div class="orbital-system">
             <div class="orbit orbit-1">
@@ -58,15 +64,6 @@
             </div>
             <div class="orbit orbit-2">
                 <div class="planet planet-2"></div>
-            </div>
-            <div class="orbit orbit-3">
-                <div class="planet planet-3"></div>
-            </div>
-            <div class="orbit orbit-4">
-                <div class="planet planet-4"></div>
-            </div>
-            <div class="orbit orbit-5">
-                <div class="planet planet-5"></div>
             </div>
         </div>
     </div>
