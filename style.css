@@ -2349,6 +2349,370 @@ html {
     }
 }
 
+/* ==================== SATELLITE ==================== */
+.satellite {
+    position: fixed;
+    top: 12%;
+    right: 15%;
+    width: 60px;
+    height: 20px;
+    z-index: 3;
+    animation: satelliteOrbit 45s linear infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.satellite-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 12px;
+    background: linear-gradient(180deg, 
+        #e8e8e8 0%, 
+        #c0c0c0 30%, 
+        #a0a0a0 50%,
+        #808080 70%,
+        #606060 100%);
+    border-radius: 3px;
+    box-shadow: 
+        inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3),
+        0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.satellite-body::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #4a90d9 0%, #2563a8 100%);
+    border-radius: 1px;
+    box-shadow: 0 0 4px #4a90d9;
+}
+
+.satellite-body::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    width: 3px;
+    height: 3px;
+    background: #ff4444;
+    border-radius: 50%;
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+.solar-panel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 28px;
+    background: 
+        repeating-linear-gradient(90deg,
+            #1a237e 0px,
+            #1a237e 2px,
+            #283593 2px,
+            #283593 3px
+        ),
+        linear-gradient(180deg, 
+            #3949ab 0%, 
+            #1a237e 50%, 
+            #0d1442 100%);
+    border: 1px solid #5c6bc0;
+    border-radius: 1px;
+    box-shadow: 
+        inset 0 0 8px rgba(92, 107, 192, 0.5),
+        0 0 6px rgba(57, 73, 171, 0.4);
+}
+
+.solar-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(255, 255, 255, 0.1) 3px,
+            rgba(255, 255, 255, 0.1) 4px
+        );
+}
+
+.solar-panel-left {
+    left: -2px;
+    transform: translateY(-50%) translateX(-100%);
+}
+
+.solar-panel-right {
+    right: -2px;
+    transform: translateY(-50%) translateX(100%);
+}
+
+.satellite-antenna {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle at 30% 30%, #e0e0e0, #808080);
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+.satellite-antenna::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 6px;
+    background: linear-gradient(to top, #a0a0a0, #606060);
+}
+
+@keyframes satelliteOrbit {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(100px) translateY(-30px) rotate(5deg);
+    }
+    50% {
+        transform: translateX(200px) translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateX(100px) translateY(30px) rotate(-5deg);
+    }
+    100% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; box-shadow: 0 0 4px #ff4444; }
+    50% { opacity: 0.3; box-shadow: 0 0 2px #ff4444; }
+}
+
+/* ==================== SPACE STATION (ISS-inspired) ==================== */
+.space-station {
+    position: fixed;
+    top: 70%;
+    right: 25%;
+    width: 120px;
+    height: 50px;
+    z-index: 3;
+    animation: stationOrbit 120s linear infinite;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
+}
+
+.station-module {
+    position: absolute;
+    background: linear-gradient(180deg,
+        #f5f5f5 0%,
+        #e0e0e0 20%,
+        #c8c8c8 40%,
+        #b0b0b0 60%,
+        #989898 80%,
+        #808080 100%);
+    border-radius: 4px;
+    box-shadow: 
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+        0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+.station-core {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 14px;
+}
+
+.station-core::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    width: 6px;
+    height: 6px;
+    background: 
+        radial-gradient(circle, rgba(100, 200, 255, 0.8) 0%, rgba(50, 150, 220, 0.6) 100%);
+    border-radius: 1px;
+    box-shadow: 0 0 4px rgba(100, 200, 255, 0.6);
+}
+
+.station-core::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    width: 6px;
+    height: 6px;
+    background: 
+        radial-gradient(circle, rgba(255, 220, 100, 0.8) 0%, rgba(220, 180, 50, 0.6) 100%);
+    border-radius: 1px;
+    box-shadow: 0 0 4px rgba(255, 220, 100, 0.5);
+}
+
+.station-lab-left {
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 10px;
+}
+
+.station-lab-right {
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 10px;
+}
+
+.station-truss {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    transform: translateY(-50%);
+    height: 3px;
+    background: linear-gradient(90deg,
+        #909090 0%,
+        #b0b0b0 20%,
+        #a0a0a0 40%,
+        #b0b0b0 60%,
+        #a0a0a0 80%,
+        #909090 100%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.station-truss::before,
+.station-truss::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    width: 2px;
+    height: 5px;
+    background: #808080;
+}
+
+.station-truss::before { left: 25%; }
+.station-truss::after { right: 25%; }
+
+.station-solar {
+    position: absolute;
+    width: 28px;
+    height: 8px;
+    background: 
+        repeating-linear-gradient(90deg,
+            #1a237e 0px,
+            #1a237e 1.5px,
+            #283593 1.5px,
+            #283593 2.5px
+        ),
+        linear-gradient(180deg, 
+            #3949ab 0%, 
+            #1a237e 50%, 
+            #0d1442 100%);
+    border: 1px solid #5c6bc0;
+    box-shadow: 
+        inset 0 0 6px rgba(92, 107, 192, 0.5),
+        0 0 5px rgba(57, 73, 171, 0.3);
+}
+
+.station-solar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(0deg,
+            transparent 0px,
+            transparent 2px,
+            rgba(255, 255, 255, 0.08) 2px,
+            rgba(255, 255, 255, 0.08) 2.5px
+        );
+}
+
+.station-solar-1 {
+    top: -2px;
+    left: 0;
+    transform: translateY(-100%) rotate(-8deg);
+}
+
+.station-solar-2 {
+    top: -2px;
+    right: 0;
+    transform: translateY(-100%) rotate(8deg);
+}
+
+.station-solar-3 {
+    bottom: -2px;
+    left: 0;
+    transform: translateY(100%) rotate(8deg);
+}
+
+.station-solar-4 {
+    bottom: -2px;
+    right: 0;
+    transform: translateY(100%) rotate(-8deg);
+}
+
+.station-radiator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(90deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    box-shadow: 0 0 6px rgba(244, 208, 63, 0.4);
+}
+
+.station-radiator::before,
+.station-radiator::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 2px;
+    background: linear-gradient(90deg, #c9a227, #f4d03f, #c9a227);
+}
+
+.station-radiator::before { top: 0; }
+.station-radiator::after { bottom: 0; }
+
+@keyframes stationOrbit {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-80px) translateY(-20px) rotate(2deg);
+    }
+    50% {
+        transform: translateX(-160px) translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateX(-80px) translateY(20px) rotate(-2deg);
+    }
+    100% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+}
+
 /* Hide stars in light mode */
 .star-field {
     opacity: 0;
