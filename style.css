@@ -170,10 +170,10 @@ body::after {
 
 @keyframes floatStars {
     0% {
-        transform: translateY(0);
+        transform: rotate(0deg);
     }
     100% {
-        transform: translateY(-100vh);
+        transform: rotate(360deg);
     }
 }
 
@@ -2020,23 +2020,27 @@ html {
 
 .stars-1 {
     background-image: 
-        radial-gradient(1px 1px at 20px 30px, #ffffff, transparent),
-        radial-gradient(1px 1px at 40px 70px, #ffffff, transparent),
-        radial-gradient(1px 1px at 90px 40px, #ffffff, transparent);
+        radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, transparent),
+        radial-gradient(1px 1px at 40px 70px, #e6e6fa, transparent),
+        radial-gradient(1.5px 1.5px at 90px 40px, #ffffff, transparent),
+        radial-gradient(0.8px 0.8px at 150px 80px, #d0d0ff, transparent),
+        radial-gradient(1.2px 1.2px at 10px 20px, #ffd4d4, transparent);
     background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: move-stars 40s linear infinite;
-    opacity: 0.6;
+    background-size: 200px 150px;
+    animation: rotate-stars 120s linear infinite;
+    opacity: 0.8;
 }
 
 .stars-2 {
     background-image: 
-        radial-gradient(1px 1px at 40px 60px, #ffffff, transparent),
-        radial-gradient(1px 1px at 120px 10px, #ffffff, transparent);
+        radial-gradient(1.2px 1.2px at 40px 60px, #e0e0ff, transparent),
+        radial-gradient(1px 1px at 120px 10px, #ffffff, transparent),
+        radial-gradient(0.8px 0.8px at 70px 100px, #fff5e6, transparent),
+        radial-gradient(1.3px 1.3px at 160px 50px, #ffffff, transparent);
     background-repeat: repeat;
-    background-size: 300px 150px;
-    animation: move-stars 80s linear infinite;
-    opacity: 0.4;
+    background-size: 250px 180px;
+    animation: rotate-stars 180s linear infinite reverse;
+    opacity: 0.6;
 }
 
 .shooting-star {
@@ -2051,12 +2055,12 @@ html {
     will-change: transform;
 }
 
-@keyframes move-stars {
+@keyframes rotate-stars {
     from {
-        transform: translateY(0);
+        transform: rotate(0deg);
     }
     to {
-        transform: translateY(-100vh);
+        transform: rotate(360deg);
     }
 }
 
@@ -2159,31 +2163,67 @@ html {
     font-weight: 500;
 }
 
-/* Simplified Solar System Animation */
+/* Advanced Realistic Sun */
 .sun {
     position: fixed;
     top: 10%;
     left: 2%;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #fff700 0%, #ff8c00 50%, #ff4500 100%);
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 200, 0.9) 0%, transparent 15%),
+        radial-gradient(circle at 40% 40%, rgba(255, 240, 100, 0.7) 0%, transparent 20%),
+        radial-gradient(ellipse at 50% 50%, #ffeb3b 0%, #ffd700 20%, #ffa500 40%, #ff8c00 65%, #ff6347 100%);
     box-shadow: 
-        0 0 20px rgba(255, 255, 0, 0.6),
-        0 0 40px rgba(255, 200, 0, 0.4);
-    animation: sunPulse 4s ease-in-out infinite;
+        0 0 30px rgba(255, 255, 0, 0.8),
+        0 0 60px rgba(255, 200, 0, 0.6),
+        0 0 90px rgba(255, 140, 0, 0.4),
+        inset -10px -10px 30px rgba(255, 69, 0, 0.3),
+        inset 5px 5px 15px rgba(255, 255, 150, 0.2);
+    animation: sunPulse 4s ease-in-out infinite, sunRotate 120s linear infinite;
     z-index: 10;
     will-change: transform;
+    filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.5));
+}
+
+.sun::before {
+    content: '';
+    position: absolute;
+    inset: -15px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 200, 100, 0.2) 0%, transparent 70%);
+    animation: sunFlare 3s ease-in-out infinite;
 }
 
 @keyframes sunPulse {
     0%, 100% {
         transform: scale(1);
-        opacity: 0.8;
+        opacity: 0.95;
     }
     50% {
-        transform: scale(1.05);
+        transform: scale(1.06);
         opacity: 1;
+    }
+}
+
+@keyframes sunRotate {
+    from {
+        filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.5)) hue-rotate(0deg);
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.5)) hue-rotate(360deg);
+    }
+}
+
+@keyframes sunFlare {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
     }
 }
 
@@ -2207,15 +2247,39 @@ html {
 }
 
 .orbit-1 {
-    width: 250px;
-    height: 250px;
-    animation: orbit 30s linear infinite;
+    width: 150px;
+    height: 150px;
+    animation: orbit 20s linear infinite;
 }
 
 .orbit-2 {
-    width: 350px;
-    height: 350px;
+    width: 200px;
+    height: 200px;
+    animation: orbit 30s linear infinite;
+}
+
+.orbit-3 {
+    width: 260px;
+    height: 260px;
+    animation: orbit 40s linear infinite;
+}
+
+.orbit-4 {
+    width: 320px;
+    height: 320px;
     animation: orbit 50s linear infinite;
+}
+
+.orbit-5 {
+    width: 420px;
+    height: 420px;
+    animation: orbit 70s linear infinite;
+}
+
+.orbit-6 {
+    width: 510px;
+    height: 510px;
+    animation: orbit 90s linear infinite;
 }
 
 @keyframes orbit {
@@ -2233,32 +2297,170 @@ html {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0.7;
+    opacity: 0.85;
     z-index: 1;
     will-change: transform;
+    transition: all 0.3s ease;
 }
 
-/* Simplified Mars */
-.planet-1 {
+/* Mercury rotation */
+.planet-mercury {
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.8) 0%, rgba(200, 200, 200, 0.9) 20%, #8b8680 50%, #696360 100%);
+    box-shadow: 
+        inset -2px -2px 4px rgba(0, 0, 0, 0.6),
+        0 0 8px rgba(200, 200, 200, 0.3);
+    animation: rotatePlanet 6s linear infinite;
+}
+
+/* Venus rotation */
+.planet-venus {
+    width: 18px;
+    height: 18px;
+    background: radial-gradient(circle at 40% 40%, rgba(255, 255, 180, 0.95) 0%, rgba(255, 200, 100, 0.9) 30%, #ffa500 60%, #da8800 100%);
+    box-shadow: 
+        inset -3px -3px 6px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(255, 200, 100, 0.6),
+        0 0 25px rgba(255, 150, 0, 0.3);
+    animation: rotatePlanet 8s linear infinite reverse;
+}
+
+/* Earth rotation */
+.planet-earth {
     width: 20px;
     height: 20px;
-    background: linear-gradient(135deg, #cd5c5c 0%, #a0522d 100%);
-    box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.5);
+    background: 
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 10%, transparent 15%),
+        radial-gradient(circle at 35% 35%, rgba(100, 200, 255, 0.6) 0%, transparent 20%),
+        radial-gradient(circle at 60% 60%, rgba(100, 180, 80, 0.7) 0%, transparent 15%),
+        linear-gradient(135deg, #1e90ff 0%, #228b22 40%, #4169e1 70%, #1e90ff 100%);
+    box-shadow: 
+        inset -4px -4px 8px rgba(0, 0, 0, 0.5),
+        0 0 12px rgba(100, 150, 255, 0.5);
+    animation: rotatePlanet 10s linear infinite;
 }
 
-/* Simplified Earth */
-.planet-2 {
-    width: 24px;
+/* Mars rotation */
+.planet-mars {
+    width: 16px;
+    height: 16px;
+    background: 
+        radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.9) 0%, transparent 8%),
+        radial-gradient(circle at 50% 85%, rgba(200, 220, 255, 0.7) 0%, transparent 8%),
+        linear-gradient(135deg, #e27b58 0%, #cd5c5c 30%, #8b4513 60%, #a0522d 100%);
+    box-shadow: 
+        inset -3px -3px 6px rgba(0, 0, 0, 0.6),
+        0 0 10px rgba(205, 92, 92, 0.4);
+    animation: rotatePlanet 7s linear infinite;
+}
+
+/* Jupiter rotation */
+.planet-jupiter {
+    width: 35px;
+    height: 35px;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 180, 0.8) 0%, transparent 15%),
+        repeating-linear-gradient(
+            0deg,
+            #c88b3a 0px,
+            #c88b3a 3px,
+            #a67035 3px,
+            #a67035 6px,
+            #8b5a2b 6px,
+            #8b5a2b 9px,
+            #d4a574 9px,
+            #d4a574 12px
+        );
+    box-shadow: 
+        inset -5px -5px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 8px rgba(255, 255, 150, 0.2),
+        0 0 15px rgba(200, 139, 58, 0.4);
+    animation: rotatePlanet 5s linear infinite;
+    position: relative;
+}
+
+/* Jupiter's Great Red Spot */
+.planet-jupiter::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 6px;
+    background: radial-gradient(circle, #d2691e, #8b4513);
+    border-radius: 50%;
+    top: 60%;
+    left: 45%;
+    box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Saturn rotation */
+.planet-saturn {
+    width: 28px;
+    height: 28px;
+    background: 
+        radial-gradient(circle at 35% 35%, rgba(255, 255, 200, 0.7) 0%, transparent 12%),
+        repeating-linear-gradient(
+            0deg,
+            #fad5a5 0px,
+            #fad5a5 2px,
+            #f0c070 2px,
+            #f0c070 4px,
+            #d4a574 4px,
+            #d4a574 6px,
+            #c4975a 6px,
+            #c4975a 8px
+        );
+    box-shadow: 
+        inset -4px -4px 10px rgba(0, 0, 0, 0.4),
+        inset 2px 2px 6px rgba(255, 255, 200, 0.15),
+        0 0 12px rgba(212, 165, 116, 0.3);
+    animation: rotatePlanet 9s linear infinite;
+    position: relative;
+}
+
+/* Saturn's rings - before pseudo element */
+.planet-saturn::before {
+    content: '';
+    position: absolute;
+    width: 55px;
+    height: 20px;
+    border: 3px solid rgba(200, 170, 140, 0.6);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(75deg);
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 8px rgba(200, 170, 140, 0.2);
+}
+
+/* Saturn's ring glow effect - after pseudo element */
+.planet-saturn::after {
+    content: '';
+    position: absolute;
+    width: 60px;
     height: 24px;
-    background: linear-gradient(140deg, #4169e1 0%, #228b22 50%, #1e90ff 100%);
-    box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.5);
+    border: 2px dashed rgba(212, 165, 116, 0.4);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(75deg);
 }
 
 /* Planet hover effects */
 .planet:hover {
     opacity: 1;
-    transform: translateX(-50%) scale(1.2);
-    transition: all 0.3s ease;
+    transform: translateX(-50%) scale(1.3);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
+
+@keyframes rotatePlanet {
+    from {
+        transform: translateX(-50%) rotateZ(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotateZ(360deg);
+    }
 }
 
 /* =============================
