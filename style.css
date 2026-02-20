@@ -2232,6 +2232,103 @@ html {
     animation-delay: -18s;
 }
 
+.asteroid-9 {
+    width: 11px;
+    height: 9px;
+    top: 10%;
+    right: 55%;
+    border-radius: 52% 48% 55% 45% / 48% 52% 45% 55%;
+    background: 
+        radial-gradient(circle at 30% 35%, rgba(95, 88, 80, 0.7) 0%, transparent 32%),
+        linear-gradient(135deg, #756d65 0%, #524a44 50%, #3a3530 100%);
+    animation: floatAsteroid1 27s ease-in-out infinite, tumble1 13s linear infinite;
+    animation-delay: -7s;
+}
+
+.asteroid-10 {
+    width: 6px;
+    height: 5px;
+    top: 40%;
+    right: 65%;
+    border-radius: 48% 52% 50% 50% / 55% 45% 50% 50%;
+    animation: floatAsteroid3 24s ease-in-out infinite, tumble2 9s linear infinite;
+    animation-delay: -4s;
+}
+
+.asteroid-11 {
+    width: 22px;
+    height: 17px;
+    top: 85%;
+    right: 55%;
+    border-radius: 45% 55% 48% 52% / 50% 50% 55% 45%;
+    background: 
+        radial-gradient(circle at 22% 28%, rgba(120, 110, 100, 0.7) 0%, transparent 26%),
+        radial-gradient(circle at 68% 72%, rgba(60, 55, 48, 0.8) 0%, transparent 24%),
+        linear-gradient(150deg, #918779 0%, #6e655d 30%, #4f4840 60%, #363230 100%);
+    animation: floatAsteroid2 38s ease-in-out infinite, tumble1 19s linear infinite;
+    animation-delay: -22s;
+}
+
+.asteroid-12 {
+    width: 7px;
+    height: 6px;
+    top: 5%;
+    right: 75%;
+    border-radius: 55% 45% 52% 48% / 45% 55% 48% 52%;
+    animation: floatAsteroid1 21s ease-in-out infinite, tumble2 8s linear infinite;
+    animation-delay: -11s;
+}
+
+.asteroid-13 {
+    width: 15px;
+    height: 12px;
+    top: 30%;
+    right: 80%;
+    border-radius: 48% 52% 45% 55% / 52% 48% 55% 45%;
+    background: 
+        radial-gradient(circle at 35% 30%, rgba(105, 98, 88, 0.7) 0%, transparent 30%),
+        linear-gradient(145deg, #847b72 0%, #5f5850 45%, #403b36 100%);
+    animation: floatAsteroid3 33s ease-in-out infinite, tumble1 15s linear infinite;
+    animation-delay: -9s;
+}
+
+.asteroid-14 {
+    width: 5px;
+    height: 4px;
+    top: 65%;
+    right: 70%;
+    border-radius: 50% 50% 55% 45% / 48% 52% 50% 50%;
+    animation: floatAsteroid2 19s ease-in-out infinite, tumble2 7s linear infinite;
+    animation-delay: -6s;
+}
+
+.asteroid-15 {
+    width: 13px;
+    height: 10px;
+    top: 90%;
+    right: 30%;
+    border-radius: 52% 48% 48% 52% / 55% 45% 52% 48%;
+    background: 
+        radial-gradient(circle at 28% 32%, rgba(100, 92, 84, 0.7) 0%, transparent 28%),
+        linear-gradient(160deg, #7a7168 0%, #555048 50%, #3d3934 100%);
+    animation: floatAsteroid1 29s ease-in-out infinite, tumble2 17s linear infinite;
+    animation-delay: -14s;
+}
+
+.asteroid-16 {
+    width: 19px;
+    height: 15px;
+    top: 50%;
+    right: 85%;
+    border-radius: 45% 55% 52% 48% / 48% 52% 45% 55%;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(115, 105, 95, 0.7) 0%, transparent 25%),
+        radial-gradient(circle at 72% 68%, rgba(55, 50, 45, 0.8) 0%, transparent 20%),
+        linear-gradient(140deg, #8d847a 0%, #68615a 35%, #4a443e 65%, #32302c 100%);
+    animation: floatAsteroid3 36s ease-in-out infinite, tumble1 18s linear infinite;
+    animation-delay: -20s;
+}
+
 /* Tumbling rotation animations */
 @keyframes tumble1 {
     from { transform: rotate(0deg); }
