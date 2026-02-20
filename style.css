@@ -2232,18 +2232,19 @@ html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 5;
+    z-index: 15;
     will-change: transform;
 }
 
 .orbit {
     position: absolute;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     will-change: transform;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
 
 .orbit-1 {
@@ -2303,16 +2304,16 @@ html {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0.85;
-    z-index: 1;
+    opacity: 1;
+    z-index: 20;
     will-change: transform;
     transition: all 0.3s ease;
 }
 
 /* Mercury rotation */
 .planet-mercury {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.8) 0%, rgba(200, 200, 200, 0.9) 20%, #8b8680 50%, #696360 100%);
     box-shadow: 
         inset -2px -2px 4px rgba(0, 0, 0, 0.6),
@@ -2322,8 +2323,8 @@ html {
 
 /* Venus rotation */
 .planet-venus {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     background: radial-gradient(circle at 40% 40%, rgba(255, 255, 180, 0.95) 0%, rgba(255, 200, 100, 0.9) 30%, #ffa500 60%, #da8800 100%);
     box-shadow: 
         inset -3px -3px 6px rgba(0, 0, 0, 0.4),
@@ -2334,8 +2335,8 @@ html {
 
 /* Earth rotation */
 .planet-earth {
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
     background: 
         radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 10%, transparent 15%),
         radial-gradient(circle at 35% 35%, rgba(100, 200, 255, 0.6) 0%, transparent 20%),
@@ -2349,8 +2350,8 @@ html {
 
 /* Mars rotation */
 .planet-mars {
-    width: 16px;
-    height: 16px;
+    width: 22px;
+    height: 22px;
     background: 
         radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.9) 0%, transparent 8%),
         radial-gradient(circle at 50% 85%, rgba(200, 220, 255, 0.7) 0%, transparent 8%),
@@ -2363,8 +2364,8 @@ html {
 
 /* Jupiter rotation */
 .planet-jupiter {
-    width: 35px;
-    height: 35px;
+    width: 48px;
+    height: 48px;
     background: 
         radial-gradient(circle at 30% 30%, rgba(255, 255, 180, 0.8) 0%, transparent 15%),
         repeating-linear-gradient(
@@ -2401,8 +2402,8 @@ html {
 
 /* Saturn rotation */
 .planet-saturn {
-    width: 28px;
-    height: 28px;
+    width: 38px;
+    height: 38px;
     background: 
         radial-gradient(circle at 35% 35%, rgba(255, 255, 200, 0.7) 0%, transparent 12%),
         repeating-linear-gradient(
