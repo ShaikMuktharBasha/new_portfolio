@@ -2003,7 +2003,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
     pointer-events: none;
     will-change: transform;
 }
@@ -2166,10 +2166,10 @@ html {
 /* Advanced Realistic Sun */
 .sun {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 120px;
-    height: 120px;
+    bottom: 10%;
+    left: 15%;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: 
         radial-gradient(circle at 30% 30%, rgba(255, 255, 200, 0.9) 0%, transparent 15%),
@@ -2181,11 +2181,10 @@ html {
         0 0 90px rgba(255, 140, 0, 0.4),
         inset -10px -10px 30px rgba(255, 69, 0, 0.3),
         inset 5px 5px 15px rgba(255, 255, 150, 0.2);
-    animation: sunPulse 4s ease-in-out infinite, sunRotate 120s linear infinite;
-    z-index: 100;
+    animation: sunPulse 4s ease-in-out infinite;
+    z-index: 2;
     will-change: transform;
     filter: drop-shadow(0 0 20px rgba(255, 165, 0, 0.5));
-    transform: translate(-50%, -50%);
     pointer-events: none;
 
 .sun::before {
@@ -2230,63 +2229,61 @@ html {
 
 .orbital-system {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 50;
+    bottom: 10%;
+    left: 15%;
+    z-index: 2;
     will-change: transform;
     pointer-events: none;
 
 .orbit {
     position: absolute;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     will-change: transform;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
 
 .orbit-1 {
-    width: 150px;
-    height: 150px;
-    animation: orbit 20s linear infinite;
+    width: 120px;
+    height: 120px;
+    animation: orbit 15s linear infinite;
     animation-delay: 0s;
 }
 
 .orbit-2 {
-    width: 200px;
-    height: 200px;
-    animation: orbit 30s linear infinite;
+    width: 160px;
+    height: 160px;
+    animation: orbit 22s linear infinite;
     animation-delay: -5s;
 }
 
 .orbit-3 {
-    width: 260px;
-    height: 260px;
-    animation: orbit 40s linear infinite;
+    width: 200px;
+    height: 200px;
+    animation: orbit 30s linear infinite;
     animation-delay: -10s;
 }
 
 .orbit-4 {
-    width: 320px;
-    height: 320px;
-    animation: orbit 50s linear infinite;
+    width: 250px;
+    height: 250px;
+    animation: orbit 40s linear infinite;
     animation-delay: -15s;
 }
 
 .orbit-5 {
-    width: 420px;
-    height: 420px;
-    animation: orbit 70s linear infinite;
+    width: 320px;
+    height: 320px;
+    animation: orbit 55s linear infinite;
     animation-delay: -20s;
 }
 
 .orbit-6 {
-    width: 510px;
-    height: 510px;
-    animation: orbit 90s linear infinite;
+    width: 400px;
+    height: 400px;
+    animation: orbit 70s linear infinite;
     animation-delay: -25s;
 }
 
@@ -2306,15 +2303,15 @@ html {
     left: 50%;
     transform: translateX(-50%);
     opacity: 1;
-    z-index: 999;
+    z-index: 3;
     will-change: transform;
     transition: all 0.3s ease;
 }
 
 /* Mercury rotation */
 .planet-mercury {
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
     background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.8) 0%, rgba(200, 200, 200, 0.9) 20%, #8b8680 50%, #696360 100%);
     box-shadow: 
         inset -2px -2px 4px rgba(0, 0, 0, 0.6),
@@ -2324,8 +2321,8 @@ html {
 
 /* Venus rotation */
 .planet-venus {
-    width: 24px;
-    height: 24px;
+    width: 14px;
+    height: 14px;
     background: radial-gradient(circle at 40% 40%, rgba(255, 255, 180, 0.95) 0%, rgba(255, 200, 100, 0.9) 30%, #ffa500 60%, #da8800 100%);
     box-shadow: 
         inset -3px -3px 6px rgba(0, 0, 0, 0.4),
@@ -2336,8 +2333,8 @@ html {
 
 /* Earth rotation */
 .planet-earth {
-    width: 26px;
-    height: 26px;
+    width: 16px;
+    height: 16px;
     background: 
         radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 10%, transparent 15%),
         radial-gradient(circle at 35% 35%, rgba(100, 200, 255, 0.6) 0%, transparent 20%),
@@ -2351,8 +2348,8 @@ html {
 
 /* Mars rotation */
 .planet-mars {
-    width: 22px;
-    height: 22px;
+    width: 12px;
+    height: 12px;
     background: 
         radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.9) 0%, transparent 8%),
         radial-gradient(circle at 50% 85%, rgba(200, 220, 255, 0.7) 0%, transparent 8%),
@@ -2365,8 +2362,8 @@ html {
 
 /* Jupiter rotation */
 .planet-jupiter {
-    width: 48px;
-    height: 48px;
+    width: 28px;
+    height: 28px;
     background: 
         radial-gradient(circle at 30% 30%, rgba(255, 255, 180, 0.8) 0%, transparent 15%),
         repeating-linear-gradient(
@@ -2403,8 +2400,8 @@ html {
 
 /* Saturn rotation */
 .planet-saturn {
-    width: 38px;
-    height: 38px;
+    width: 24px;
+    height: 24px;
     background: 
         radial-gradient(circle at 35% 35%, rgba(255, 255, 200, 0.7) 0%, transparent 12%),
         repeating-linear-gradient(
@@ -2430,9 +2427,9 @@ html {
 .planet-saturn::before {
     content: '';
     position: absolute;
-    width: 55px;
-    height: 20px;
-    border: 3px solid rgba(200, 170, 140, 0.6);
+    width: 42px;
+    height: 14px;
+    border: 2px solid rgba(200, 170, 140, 0.6);
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -2446,9 +2443,9 @@ html {
 .planet-saturn::after {
     content: '';
     position: absolute;
-    width: 60px;
-    height: 24px;
-    border: 2px dashed rgba(212, 165, 116, 0.4);
+    width: 48px;
+    height: 18px;
+    border: 1px dashed rgba(212, 165, 116, 0.4);
     border-radius: 50%;
     top: 50%;
     left: 50%;
