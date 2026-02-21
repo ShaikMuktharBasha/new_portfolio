@@ -536,6 +536,19 @@
 
     <!-- Navigation Menu Script -->
     <script>
+        // Performance: Use passive event listeners
+        const passiveSupported = (() => {
+            let passive = false;
+            try {
+                const options = { get passive() { passive = true; return false; } };
+                window.addEventListener("test", null, options);
+                window.removeEventListener("test", null, options);
+            } catch(e) {}
+            return passive;
+        })();
+
+        const passiveOpt = passiveSupported ? { passive: true } : false;
+
         const navMenuToggle = document.getElementById('navMenuToggle');
         const sideNav = document.getElementById('sideNav');
         const navOverlay = document.getElementById('navOverlay');
@@ -543,44 +556,58 @@
         
         // Toggle navigation menu
         navMenuToggle.addEventListener('click', () => {
-            navMenuToggle.classList.toggle('active');
-            sideNav.classList.toggle('active');
-            navOverlay.classList.toggle('active');
+            requestAnimationFrame(() => {
+                navMenuToggle.classList.toggle('active');
+                sideNav.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+            });
         });
 
         // Close menu when overlay is clicked
         navOverlay.addEventListener('click', () => {
-            navMenuToggle.classList.remove('active');
-            sideNav.classList.remove('active');
-            navOverlay.classList.remove('active');
+            requestAnimationFrame(() => {
+                navMenuToggle.classList.remove('active');
+                sideNav.classList.remove('active');
+                navOverlay.classList.remove('active');
+            });
         });
 
-        // Smooth scroll to sections
+        // Smooth scroll to sections - optimized
         function scrollToSection(sectionId) {
-            // Close the navigation menu
-            navMenuToggle.classList.remove('active');
-            sideNav.classList.remove('active');
-            navOverlay.classList.remove('active');
-            
-            // Find the section and scroll to it
-            if (sectionId === 'header') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                const section = document.querySelector('.' + sectionId + '-section');
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
+            requestAnimationFrame(() => {
+                // Close the navigation menu
+                navMenuToggle.classList.remove('active');
+                sideNav.classList.remove('active');
+                navOverlay.classList.remove('active');
+                
+                // Find the section and scroll to it
+                if (sectionId === 'header') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const section = document.querySelector('.' + sectionId + '-section');
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
-            }
+            });
         }
 
         // Close menu when escape key is pressed
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                navMenuToggle.classList.remove('active');
-                sideNav.classList.remove('active');
-                navOverlay.classList.remove('active');
+                requestAnimationFrame(() => {
+                    navMenuToggle.classList.remove('active');
+                    sideNav.classList.remove('active');
+                    navOverlay.classList.remove('active');
+                });
             }
         });
+
+        // Performance: Optimize scroll and touch events
+        document.addEventListener('scroll', () => {}, passiveOpt);
+        document.addEventListener('touchstart', () => {}, passiveOpt);
+        document.addEventListener('touchmove', () => {}, passiveOpt);
+        document.addEventListener('wheel', () => {}, passiveOpt);
     </script>
 </body>
 </html>

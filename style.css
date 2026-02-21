@@ -67,6 +67,12 @@
     box-sizing: border-box;
 }
 
+/* Performance: Enable passive scrolling */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
@@ -564,6 +570,8 @@ p {
 .section {
     padding: 6rem 0;
     position: relative;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
 }
 
 .section::before {
@@ -3084,12 +3092,48 @@ html {
 .sun,
 .orbital-system,
 .orbit,
-.planet {
+.planet,
+.asteroid,
+.satellite,
+.space-station {
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-perspective: 1000px;
     perspective: 1000px;
+}
+
+/* Isolate animated background from main content */
+.star-field {
+    isolation: isolate;
+    contain: strict;
+}
+
+/* Optimize main content scrolling */
+main, .container {
+    isolation: isolate;
+}
+
+/* Touch optimization for mobile */
+.section,
+.proficiency-card,
+.leadership-card,
+.certification-badge,
+.skill-category,
+.project-item,
+.contact-form-container {
+    touch-action: manipulation;
+}
+
+/* Reduce paint areas on hover */
+.proficiency-card,
+.leadership-card,
+.certification-badge,
+.skill-category,
+.project-item,
+.btn {
+    will-change: transform;
+    contain: layout paint;
 }
 
 /* Reduce motion for users who prefer it */
@@ -3130,4 +3174,19 @@ img, video {
 .nav-links li,
 .certification-badge {
     contain: layout style paint;
+}
+
+/* Optimize scrolling performance */
+.section {
+    transform: translateZ(0);
+}
+
+/* Prevent pointer events on decorative elements */
+.star-field *,
+.sun,
+.orbital-system,
+.asteroid,
+.satellite,
+.space-station {
+    pointer-events: none !important;
 }
