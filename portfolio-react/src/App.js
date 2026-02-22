@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Navigation from './components/Navigation';
 import StarField from './components/StarField';
+import RocketCursor from './components/RocketCursor';
 import Header from './components/Header';
 import Summary from './components/Summary';
 import Proficiency from './components/Proficiency';
@@ -86,6 +87,7 @@ function App() {
 
   return (
     <div className="App">
+      <RocketCursor />
       <Navigation 
         navActive={navActive} 
         toggleNav={toggleNav} 

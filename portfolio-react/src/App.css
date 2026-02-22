@@ -80,18 +80,27 @@ body {
     background: #0a0a0f;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    cursor: default;
+    cursor: none;
 }
 
-/* Simplified cursor for interactive elements */
+/* Hide default cursor everywhere */
 a, button, .btn, .nav-links li, .planet, .moon-icon, 
 input, textarea, select, [role="button"], [tabindex]:not([tabindex="-1"]) {
-    cursor: pointer;
+    cursor: none;
 }
 
-/* Text selection cursor */
 p, h1, h2, h3, h4, h5, h6, span, div {
-    cursor: text;
+    cursor: none;
+}
+
+/* Rocket Cursor Styles */
+.rocket-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    font-size: 24px;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+    filter: drop-shadow(0 0 8px rgba(255, 165, 0, 0.6));
 }
 
 /* Dark Mode Body Styles */
