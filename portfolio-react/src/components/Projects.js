@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-const Projects = memo(function Projects() {
+function Projects() {
   return (
     <section className="section projects-section">
       <div className="container">
@@ -33,6 +33,6 @@ const Projects = memo(function Projects() {
       </div>
     </section>
   );
-});
+}
 
 export default Projects;

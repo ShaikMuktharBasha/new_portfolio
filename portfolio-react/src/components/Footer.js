@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-const Footer = memo(function Footer() {
+function Footer() {
   return (
     <footer className="footer">
       <div className="container">
@@ -9,6 +9,6 @@ const Footer = memo(function Footer() {
       </div>
     </footer>
   );
-});
+}
 
 export default Footer;

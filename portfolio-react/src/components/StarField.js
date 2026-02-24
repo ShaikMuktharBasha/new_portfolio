@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-const StarField = memo(function StarField() {
+function StarField() {
   return (
     <div className="star-field">
       <div className="stars stars-1"></div>
@@ -73,6 +73,6 @@ const StarField = memo(function StarField() {
       </div>
     </div>
   );
-});
+}
 
 export default StarField;

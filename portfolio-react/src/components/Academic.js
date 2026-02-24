@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-const Academic = memo(function Academic() {
+function Academic() {
   return (
     <section className="section academic-section">
       <div className="container">
@@ -43,6 +43,6 @@ const Academic = memo(function Academic() {
       </div>
     </section>
   );
-});
+}
 
 export default Academic;

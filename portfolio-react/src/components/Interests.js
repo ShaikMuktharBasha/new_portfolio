@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-const Interests = memo(function Interests() {
+function Interests() {
   return (
     <section className="section interests-section">
       <div className="container">
@@ -25,6 +25,6 @@ const Interests = memo(function Interests() {
       </div>
     </section>
   );
-});
+}
 
 export default Interests;
