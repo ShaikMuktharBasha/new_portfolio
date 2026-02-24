@@ -99,12 +99,7 @@ p, h1, h2, h3, h4, h5, h6, span, div {
     pointer-events: none;
     z-index: 99999;
     font-size: 24px;
-    transition: opacity 0.15s ease;
-    will-change: transform, left, top;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
+    transition: opacity 0.15s ease, transform 0.1s ease;
 }
 
 /* Dark Mode Body Styles */
