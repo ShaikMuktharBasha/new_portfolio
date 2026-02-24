@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-function Proficiency() {
+const Proficiency = memo(function Proficiency() {
   return (
     <section className="section proficiency-section">
       <div className="container">
@@ -31,6 +31,6 @@ function Proficiency() {
       </div>
     </section>
   );
-}
+});
 
 export default Proficiency;

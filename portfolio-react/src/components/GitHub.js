@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-function GitHub() {
+const GitHub = memo(function GitHub() {
   return (
     <section className="section github-section">
       <div className="container">
@@ -22,6 +22,6 @@ function GitHub() {
       </div>
     </section>
   );
-}
+});
 
 export default GitHub;

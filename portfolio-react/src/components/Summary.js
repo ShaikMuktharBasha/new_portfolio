@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-function Summary() {
+const Summary = memo(function Summary() {
   return (
     <section className="section summary-section">
       <div className="container">
@@ -13,6 +13,6 @@ function Summary() {
       </div>
     </section>
   );
-}
+});
 
 export default Summary;

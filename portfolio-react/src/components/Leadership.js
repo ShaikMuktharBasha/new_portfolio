@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-function Leadership() {
+const Leadership = memo(function Leadership() {
   return (
     <section className="section leadership-section">
       <div className="container">
@@ -28,6 +28,6 @@ function Leadership() {
       </div>
     </section>
   );
-}
+});
 
 export default Leadership;

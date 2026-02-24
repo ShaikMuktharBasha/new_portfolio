@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-function Header({ scrollToSection }) {
+const Header = memo(function Header({ scrollToSection }) {
   return (
     <header className="header">
       <div className="container">
@@ -33,6 +33,6 @@ function Header({ scrollToSection }) {
       </div>
     </header>
   );
-}
+});
 
 export default Header;

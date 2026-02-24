@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 
-function Certifications() {
+const Certifications = memo(function Certifications() {
   useEffect(() => {
     // Load Credly embed script
     const script = document.createElement('script');
@@ -101,6 +101,6 @@ function Certifications() {
       </div>
     </section>
   );
-}
+});
 
 export default Certifications;

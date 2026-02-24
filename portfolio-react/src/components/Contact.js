@@ -1,6 +1,51 @@
-import React from 'react';
+import React, { memo, useState } from 'react';
 
-function Contact() {
+const Contact = memo(function Contact() {
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    try {
+      // FormSubmit.co - Free, no registration needed
+      const response = await fetch('https://formsubmit.co/ajax/2300032055cseh1@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          company: formData.get('company'),
+          position: formData.get('position'),
+          subject: formData.get('subject'),
+          message: formData.get('message'),
+          timeline: formData.get('timeline'),
+          _subject: `Portfolio Contact: ${formData.get('subject')}`
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setStatus('success');
+        form.reset();
+        setTimeout(() => setStatus(''), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus(''), 5000);
+      }
+    } catch (error) {
+      setStatus('error');
+      setTimeout(() => setStatus(''), 5000);
+    }
+  };
+
   return (
     <section id="contact" className="section contact-section">
       <div className="container">
@@ -44,9 +89,7 @@ function Contact() {
           <div className="contact-form-container">
             <form 
               className="contact-form" 
-              action="mailto:2300032055cseh1@gmail.com" 
-              method="post" 
-              encType="text/plain"
+              onSubmit={handleSubmit}
             >
               <h3 className="contact-form-title">Send Message</h3>
               <div className="form-group">
@@ -98,15 +141,33 @@ function Contact() {
                   <option value="Flexible">Flexible</option>
                 </select>
               </div>
-              <button type="submit" className="btn btn-primary contact-submit">
-                <i className="fas fa-paper-plane"></i> Send Message
+              <button 
+                type="submit" 
+                className="btn btn-primary contact-submit"
+                disabled={status === 'sending'}
+              >
+                {status === 'sending' ? (
+                  <><i className="fas fa-spinner fa-spin"></i> Sending...</>
+                ) : (
+                  <><i className="fas fa-paper-plane"></i> Send Message</>
+                )}
               </button>
+              {status === 'success' && (
+                <p style={{ color: '#4ecdc4', marginTop: '1rem', textAlign: 'center' }}>
+                  <i className="fas fa-check-circle"></i> Message sent successfully! I'll get back to you soon.
+                </p>
+              )}
+              {status === 'error' && (
+                <p style={{ color: '#ff6b6b', marginTop: '1rem', textAlign: 'center' }}>
+                  <i className="fas fa-exclamation-circle"></i> Failed to send. Please try again or email directly.
+                </p>
+              )}
             </form>
           </div>
         </div>
       </div>
     </section>
   );
-}
+});
 
 export default Contact;

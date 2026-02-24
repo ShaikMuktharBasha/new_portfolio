@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 
-function Navigation({ navActive, toggleNav, closeNav, scrollToSection }) {
+const Navigation = memo(function Navigation({ navActive, toggleNav, closeNav, scrollToSection }) {
   return (
     <>
       {/* Left Side Navigation Button */}
@@ -60,6 +60,6 @@ function Navigation({ navActive, toggleNav, closeNav, scrollToSection }) {
       ></div>
     </>
   );
-}
+});
 
 export default Navigation;

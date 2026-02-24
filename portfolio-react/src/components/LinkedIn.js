@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-function LinkedIn() {
+const LinkedIn = memo(function LinkedIn() {
   return (
     <section className="section linkedin-section">
       <div className="container">
@@ -22,6 +22,6 @@ function LinkedIn() {
       </div>
     </section>
   );
-}
+});
 
 export default LinkedIn;
