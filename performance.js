@@ -1,218 +1,368 @@
 /**
- * Chrome Performance Optimizer
- * Detects Chrome browser and applies optimizations for smoother rendering
- * Include this file with: <script src="performance.js"></script>
+ * Chrome Performance Optimizer v2.0
+ * Advanced optimizations for smooth 60fps rendering in Chrome
+ * Based on techniques from high-performance production websites
  */
 
 (function() {
     'use strict';
 
-    // Detect Chrome browser
+    // Detect browsers
     const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
     const isEdge = /Edg/.test(navigator.userAgent);
     
-    // Only apply optimizations for Chrome (Edge handles these better natively)
     if (!isChrome || isEdge) return;
 
-    console.log('Chrome detected - applying performance optimizations');
+    console.log('Chrome Performance Optimizer v2.0 - Initializing...');
 
-    // Create performance CSS
-    const performanceCSS = `
-        /* Chrome Performance Optimizations */
+    // ============================================
+    // PHASE 1: Critical CSS Optimizations
+    // Injected immediately to prevent layout shifts
+    // ============================================
+    
+    const criticalCSS = `
+        /* ========== COMPOSITOR-ONLY ANIMATIONS ========== */
+        /* Force all transforms to use GPU compositor thread */
         
-        /* Force GPU acceleration on animated elements */
-        *, *::before, *::after {
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+        html {
+            /* Disable smooth scroll - causes jank in Chrome */
+            scroll-behavior: auto !important;
         }
         
-        /* Optimize backdrop-filter for Chrome */
+        /* ========== BACKDROP-FILTER FIX ========== */
+        /* Chrome's backdrop-filter is extremely expensive */
+        /* Replace with optimized semi-transparent background */
+        
         .side-nav {
-            -webkit-transform: translate3d(0, 0, 0);
+            -webkit-backdrop-filter: blur(8px) !important;
+            backdrop-filter: blur(8px) !important;
+            background: rgba(15, 15, 20, 0.92) !important;
             transform: translate3d(0, 0, 0);
-            -webkit-perspective: 1000px;
-            perspective: 1000px;
-        }
-        
-        /* Reduce backdrop-filter blur for Chrome */
-        @supports (-webkit-backdrop-filter: blur(10px)) {
-            .side-nav {
-                -webkit-backdrop-filter: blur(10px) !important;
-                backdrop-filter: blur(10px) !important;
-            }
-        }
-        
-        /* GPU acceleration for animated pseudo-elements */
-        body::before,
-        body::after {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
             will-change: transform;
         }
         
-        /* Optimize star animation - reduce complexity */
-        @keyframes floatStars {
-            0% { -webkit-transform: translateZ(0) rotate(0deg); transform: translateZ(0) rotate(0deg); }
-            100% { -webkit-transform: translateZ(0) rotate(360deg); transform: translateZ(0) rotate(360deg); }
+        /* ========== PSEUDO-ELEMENT OPTIMIZATION ========== */
+        /* body::before and ::after cause massive repaint areas */
+        
+        body::before,
+        body::after {
+            /* Promote to own compositor layer */
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            /* Reduce animation complexity */
+            animation-timing-function: linear !important;
+            /* Hint browser about incoming changes */
+            will-change: transform;
+            /* Prevent hit testing overhead */
+            pointer-events: none !important;
         }
         
-        /* GPU hints for frequently animated elements */
-        .btn,
+        /* Slow down star rotation - less GPU work */
+        body::after {
+            animation-duration: 120s !important;
+        }
+        
+        /* ========== LAYER MANAGEMENT ========== */
+        /* Strategic GPU layer promotion */
+        
         .nav-menu-toggle,
         .moon-icon,
-        .side-nav,
-        .nav-links a,
+        .btn,
         .certification-card,
         .skill-category,
         .project-card,
         .interest-card,
-        .achievement-card,
-        .theme-toggle {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-font-smoothing: antialiased;
+        .achievement-card {
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
         }
         
-        /* Reduce shadow complexity on hover states */
+        /* ========== BOX-SHADOW OPTIMIZATION ========== */
+        /* Complex shadows cause expensive blur calculations */
+        /* Use CSS filter for GPU-accelerated shadows on hover */
+        
         .btn:hover,
-        .btn-primary:hover,
-        .btn-secondary:hover {
-            transition-property: transform, background !important;
-            transition-duration: 0.3s !important;
+        .certification-card:hover,
+        .project-card:hover,
+        .skill-category:hover {
+            /* Transitions only compositor-friendly properties */
+            transition-property: transform, opacity, filter !important;
+            transition-duration: 0.25s !important;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
         
-        /* Optimize scroll performance */
-        html {
-            scroll-behavior: auto !important;
-        }
+        /* ========== CONTAINMENT FOR PAINT ISOLATION ========== */
+        /* Prevents repaint propagation */
         
-        /* Containment for better paint performance */
         .section {
             contain: layout style paint;
+            content-visibility: auto;
+            contain-intrinsic-size: auto 600px;
+        }
+        
+        .header,
+        .hero {
+            contain: layout style;
+            isolation: isolate;
         }
         
         .certification-card,
         .skill-category,
-        .project-card {
+        .project-card,
+        .interest-card {
             contain: layout style;
         }
         
-        /* Reduce paint areas */
-        .header,
-        .hero,
-        .section {
-            isolation: isolate;
-        }
+        /* ========== TEXT RENDERING OPTIMIZATION ========== */
+        /* Gradient text is expensive - optimize rendering */
         
-        /* Simplify complex gradients during scroll */
         .hero-title,
         .section-title,
-        .nav-content h3 {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+        .nav-content h3,
+        [style*="background-clip: text"],
+        [style*="-webkit-background-clip: text"] {
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            /* Prevent subpixel rendering issues */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* ========== FIXED ELEMENT OPTIMIZATION ========== */
+        /* Fixed elements cause full-page repaints if not layered */
+        
+        .nav-menu-toggle,
+        .side-nav,
+        [style*="position: fixed"] {
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            will-change: transform;
+        }
+        
+        /* ========== HOVER STATE OPTIMIZATION ========== */
+        /* Reduce paint area during interactions */
+        
+        .nav-links a:hover {
+            transition-property: transform, background-color, border-color !important;
+        }
+        
+        /* ========== IMAGE OPTIMIZATION ========== */
+        img {
+            content-visibility: auto;
+        }
+        
+        /* ========== REDUCE MOTION DURING SCROLL ========== */
+        /* Applied dynamically via JavaScript */
+        
+        .chrome-scrolling body::before,
+        .chrome-scrolling body::after {
+            animation-play-state: paused !important;
+        }
+        
+        .chrome-scrolling .certification-card,
+        .chrome-scrolling .project-card,
+        .chrome-scrolling .skill-category {
+            transition: none !important;
         }
     `;
 
-    // Inject performance CSS
-    const styleElement = document.createElement('style');
-    styleElement.id = 'chrome-performance-optimizations';
-    styleElement.textContent = performanceCSS;
-    document.head.appendChild(styleElement);
+    // Inject critical CSS immediately
+    const styleEl = document.createElement('style');
+    styleEl.id = 'chrome-perf-v2';
+    styleEl.textContent = criticalCSS;
+    document.head.insertBefore(styleEl, document.head.firstChild);
 
-    // Use passive event listeners for scroll
-    const supportsPassive = (function() {
-        let supported = false;
-        try {
-            const opts = Object.defineProperty({}, 'passive', {
-                get: function() { supported = true; }
-            });
-            window.addEventListener('testPassive', null, opts);
-            window.removeEventListener('testPassive', null, opts);
-        } catch (e) {}
-        return supported;
-    })();
+    // ============================================
+    // PHASE 2: Runtime Optimizations
+    // ============================================
 
-    if (supportsPassive) {
-        // Override scroll events to be passive
-        const originalAddEventListener = EventTarget.prototype.addEventListener;
-        EventTarget.prototype.addEventListener = function(type, listener, options) {
-            if (['scroll', 'touchstart', 'touchmove', 'wheel', 'mousewheel'].includes(type)) {
-                if (typeof options === 'boolean') {
-                    options = { capture: options, passive: true };
-                } else if (typeof options === 'object' || options === undefined) {
-                    options = { ...options, passive: true };
-                }
+    // Throttle function for scroll handler
+    function throttle(fn, wait) {
+        let time = Date.now();
+        return function() {
+            if ((time + wait - Date.now()) < 0) {
+                fn.apply(this, arguments);
+                time = Date.now();
             }
-            return originalAddEventListener.call(this, type, listener, options);
         };
     }
 
-    // Request idle callback for non-critical work
-    const scheduleIdleWork = window.requestIdleCallback || function(cb) {
-        return setTimeout(cb, 1);
-    };
-
-    // Optimize images once page is idle
-    scheduleIdleWork(function() {
-        const images = document.querySelectorAll('img');
-        images.forEach(function(img) {
-            img.decoding = 'async';
-            img.loading = 'lazy';
-        });
-    });
-
-    // Reduce animation frame rate during scroll
-    let scrollTimeout;
-    let isScrolling = false;
-    const scrollOptimizations = document.createElement('style');
-    scrollOptimizations.id = 'scroll-optimizations';
+    // RAF-based scroll handler for smooth performance
+    let ticking = false;
+    let scrollY = 0;
     
-    window.addEventListener('scroll', function() {
-        if (!isScrolling) {
-            isScrolling = true;
-            scrollOptimizations.textContent = `
-                body::before, body::after {
-                    animation-play-state: paused !important;
-                }
-            `;
-            document.head.appendChild(scrollOptimizations);
+    function onScroll() {
+        scrollY = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                // Add scrolling class to html for CSS optimizations
+                document.documentElement.classList.add('chrome-scrolling');
+                ticking = false;
+            });
+            ticking = true;
         }
-        
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(function() {
-            isScrolling = false;
-            scrollOptimizations.textContent = '';
-        }, 150);
-    }, { passive: true });
-
-    // Intersection Observer for off-screen elements
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.style.contentVisibility = 'visible';
-                } else {
-                    entry.target.style.contentVisibility = 'auto';
-                }
-            });
-        }, { rootMargin: '50px' });
-
-        scheduleIdleWork(function() {
-            document.querySelectorAll('.section').forEach(function(section) {
-                observer.observe(section);
-            });
-        });
     }
 
-    // Force composite layer for fixed elements
-    scheduleIdleWork(function() {
-        const fixedElements = document.querySelectorAll('[style*="position: fixed"], .nav-menu-toggle, .side-nav');
-        fixedElements.forEach(function(el) {
-            el.style.transform = el.style.transform || 'translateZ(0)';
-        });
+    // Debounced scroll end detection
+    let scrollEndTimer;
+    function onScrollEnd() {
+        clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(function() {
+            document.documentElement.classList.remove('chrome-scrolling');
+        }, 100);
+    }
+
+    // Attach optimized scroll listeners
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScrollEnd, { passive: true });
+
+    // ============================================
+    // PHASE 3: Intersection Observer for Lazy Rendering
+    // ============================================
+
+    if ('IntersectionObserver' in window) {
+        const visibilityObserver = new IntersectionObserver(
+            function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.style.contentVisibility = 'visible';
+                        entry.target.style.willChange = 'auto';
+                    } else {
+                        entry.target.style.contentVisibility = 'auto';
+                        entry.target.style.willChange = 'unset';
+                    }
+                });
+            },
+            { 
+                rootMargin: '100px 0px',
+                threshold: 0
+            }
+        );
+
+        // Observe sections when DOM is ready
+        function observeSections() {
+            document.querySelectorAll('.section, .certification-card, .project-card').forEach(function(el) {
+                visibilityObserver.observe(el);
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', observeSections);
+        } else {
+            observeSections();
+        }
+    }
+
+    // ============================================
+    // PHASE 4: Passive Event Listeners
+    // ============================================
+
+    // Make touch and wheel events passive for smooth scrolling
+    const eventOptions = { passive: true, capture: false };
+    
+    document.addEventListener('touchstart', function(){}, eventOptions);
+    document.addEventListener('touchmove', function(){}, eventOptions);
+    document.addEventListener('wheel', function(){}, eventOptions);
+
+    // ============================================
+    // PHASE 5: Reduce Animation During User Interaction
+    // ============================================
+
+    let interactionTimer;
+    function pauseAnimationsDuringInteraction() {
+        document.documentElement.classList.add('chrome-scrolling');
+        clearTimeout(interactionTimer);
+        interactionTimer = setTimeout(function() {
+            document.documentElement.classList.remove('chrome-scrolling');
+        }, 150);
+    }
+
+    // Pause animations during any user interaction
+    ['mousedown', 'touchstart', 'keydown'].forEach(function(event) {
+        document.addEventListener(event, throttle(pauseAnimationsDuringInteraction, 100), { passive: true });
     });
 
-    console.log('Chrome performance optimizations applied successfully');
+    // ============================================
+    // PHASE 6: Image and Resource Optimization
+    // ============================================
+
+    const idleCallback = window.requestIdleCallback || function(cb) { setTimeout(cb, 1); };
+
+    idleCallback(function() {
+        // Lazy load images
+        document.querySelectorAll('img').forEach(function(img) {
+            img.loading = 'lazy';
+            img.decoding = 'async';
+        });
+
+        // Add fetchpriority to above-fold images
+        const heroImg = document.querySelector('.hero img, .header img');
+        if (heroImg) {
+            heroImg.fetchPriority = 'high';
+            heroImg.loading = 'eager';
+        }
+    });
+
+    // ============================================
+    // PHASE 7: Reduce Composite Layers on Idle
+    // ============================================
+
+    // Remove will-change hints after animations complete
+    idleCallback(function() {
+        setTimeout(function() {
+            document.querySelectorAll('[style*="will-change"]').forEach(function(el) {
+                // Only remove if not currently animating
+                if (!el.matches(':hover, :focus, :active')) {
+                    el.style.willChange = 'auto';
+                }
+            });
+        }, 3000);
+    });
+
+    // ============================================
+    // PHASE 8: Force Compositor Thread for Animations
+    // ============================================
+
+    // Override CSS animations to use compositor-friendly properties
+    const animationOptimizer = document.createElement('style');
+    animationOptimizer.textContent = `
+        /* Force all animations to run on compositor thread */
+        @keyframes floatStars {
+            from { transform: translate3d(0, 0, 0) rotate(0deg); }
+            to { transform: translate3d(0, 0, 0) rotate(360deg); }
+        }
+        
+        /* Ensure transform-based animations */
+        [class*="animate"],
+        [style*="animation"] {
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+        }
+    `;
+    document.head.appendChild(animationOptimizer);
+
+    console.log('Chrome Performance Optimizer v2.0 - Active');
+
+    // ============================================
+    // PHASE 9: Performance Monitoring (Debug)
+    // ============================================
+
+    // Uncomment to debug frame drops
+    /*
+    let lastTime = performance.now();
+    let frames = 0;
+    function measureFPS() {
+        frames++;
+        const now = performance.now();
+        if (now - lastTime >= 1000) {
+            console.log('FPS:', frames);
+            frames = 0;
+            lastTime = now;
+        }
+        requestAnimationFrame(measureFPS);
+    }
+    measureFPS();
+    */
+
 })();
