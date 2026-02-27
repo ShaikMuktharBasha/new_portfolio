@@ -168,10 +168,8 @@ body::after {
         radial-gradient(circle 1px at 40% 70%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
         radial-gradient(circle 1px at 90% 40%, #fff 1px, transparent 1px);
     background-size: 300px 300px, 400px 400px, 250px 250px;
-    animation: floatStars 60s linear infinite;
     z-index: -1;
     pointer-events: none;
-    will-change: transform;
 }
 
 @keyframes floatStars {
